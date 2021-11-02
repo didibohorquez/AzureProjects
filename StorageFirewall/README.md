@@ -53,5 +53,5 @@ This is a series of steps that I suggest for you to test these policies:
 5. Create a storage account under the Resource Group. You will notice you cannot create it unless you enable the storage firewall
 6. Once the storage account is created, check the Networking tab and verify that the IPs you added as parameters are there. You can try to delete any of those IPs and verify that it will be added back again automatically
 7. On the resource group, you can go to policies tab to check if the storage account is complient with your policies or not (remember this might take time)
-
+g
 Congratulations! You have now two custom policies that allow you to set up your storage account firewall based on your requirements!
