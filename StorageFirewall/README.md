@@ -8,6 +8,13 @@ The two policies here are intended to simplify the implementation of the Storage
 
 <img src="image/AllowFirewall.png"/>
  
- -  AllowSingleIP.json: Receives a parameter that will be either a single IP or an address range that will be added to be whitelisted on the storage firewall. Once the storage account is created, you will not be able to remove the IP selected from the firewall. You will be able to add additional IPs in case they are needed individually
+ -  AllowSingleIP.json: Receives a parameter that will be either a single IP or an address range and it will be added to the whitelist of the Firewall. You will not be able to remove the IP selected from the firewall, it will be enforced with the policy. You will be able to add additional IPs in case they are needed individually.
+
+Take into account that this policy adds only 1 IP at a time. For adding multiple IPs continue reading on the Policy section of this document.
+
+
+
+ 
+ 
 
 
