@@ -41,7 +41,7 @@ Once the policy is assigned to the desired scope be patient! It might take up to
 
 https://docs.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data
 
-## Suggested steps to test these policies
+# Suggested steps to test these policies
 
 This is a series of steps that I suggest for you to test these policies:
 
