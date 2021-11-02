@@ -18,7 +18,8 @@ There are three main concepts about policies on Azure that need to be clear in o
 
  ## Policy Definition
  A policy definition contains the code for a single policy. It can be either Built-in (provided by Azure) or Custom, like the ones we are creating here. You can create a policy definition by following the steps on this documentation, it includes both Azure Portal and CLI/API/PowerShell deployment: 
- https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage#implement-a-new-custom-policy
+
+https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage#implement-a-new-custom-policy
 
 
 ## Policy Initiative Definition
@@ -26,15 +27,23 @@ There are three main concepts about policies on Azure that need to be clear in o
 A group that contains several policy definitions. For instance, if you want to use both of the policies mentioned above at the same time you can create a Policy Initiative that contains both in order to group them together. 
 
 With the policy initiative we will also be able to create the whole list of IPs that we will like to whitelist on the firewall since we can call several instances of the same policy definition (one per IP or address range that you will like to include). Here is the docs on how to create one: 
+
 https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage#create-and-assign-an-initiative-definition
 
 ## Policy Assignment
 
-Create a new assignment of the policy to choose which resources will be enforced to use the policy: you can choose either the whole susbscription or an specific resource group. You can choose to assign individual policies or policy initiative definitions depending on your needs. Refer to this documentation as well to create a policy assignment: https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage#create-and-assign-an-initiative-definition
+Create a new assignment of the policy to choose which resources will be enforced to use the policy: you can choose either the whole susbscription or an specific resource group. You can choose to assign individual policies or policy initiative definitions depending on your needs. Refer to this documentation as well to create a policy assignment:
+
+https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage#create-and-assign-an-initiative-definition
 
 
 Once the policy is assigned to the desired scope be patient! It might take up to 30 minutes for it to apply. Once applied, you can verify the compliance of your resources. Here you can find more information on how compliance is evaluated:
 
 https://docs.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data
 
-#Suggested steps to test the policies
+## Suggested steps to test these policies
+
+This is a series of steps that I suggest for you to test these policies:
+
+1. Create the Policy Definition on your subscription for both policies 
+2. Create an Initiative Definition that contains 1 instance of MandatoryFirewall.json policy and 3 instances of AllowSingleIP.json. On the Policy Parameters tab you will be able to choose the list of IPs or address ranges that you will like to whitelist:
