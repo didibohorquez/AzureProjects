@@ -1,6 +1,6 @@
 # Storage Firewall
 
-Storage Firewall is available for Storage Accounts in order to limit the public IP addresses that have access to the information stored. Here is more information on how it works: https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal
+Storage Firewall is available for Storage Accounts in order to limit the IP addresses that have access to the information stored on the storage. Here is some documentation on how it works: https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal
 
 The two policies here are intended to simplify the implementation of the Storage Firewall. Here is a summary of their funtionallity:
 
@@ -12,7 +12,7 @@ The two policies here are intended to simplify the implementation of the Storage
 
 <img src="image/AllowedIPsList.png"/>
 
-# How to deploy and assing the policies
+# How to deploy and assign policies
  
 There are three main concepts about policies on Azure that need to be clear in order to use them correctly for your resources:
 
@@ -47,3 +47,11 @@ This is a series of steps that I suggest for you to test these policies:
 
 1. Create the Policy Definition on your subscription for both policies 
 2. Create an Initiative Definition that contains 1 instance of MandatoryFirewall.json policy and 3 instances of AllowSingleIP.json. On the Policy Parameters tab you will be able to choose the list of IPs or address ranges that you will like to whitelist:
+<img src="image/ExampleParameters.png"/>
+3. Create an empty resource group
+4. Assign the Policy Initiative to the resource group you created on step 3
+5. Create a storage account under the Resource Group. You will notice you cannot create it unless you enable the storage firewall
+6. Once the storage account is created, check the Networking tab and verify that the IPs you added as parameters are there. You can try to delete any of those IPs and verify that it will be added back again automatically
+7. On the resource group, you can go to policies tab to check if the storage account is complient with your policies or not (remember this might take time)
+
+Congratulations! You have now two custom policies that allow you to set up your storage account firewall based on your requirements!
